@@ -70,9 +70,13 @@
         </a-entity> -->
 
 
-
-        <a-entity gps-new-entity-place="latitude: 43.084933; longitude: -77.673909">
-            <a-entity>
+<!-- GPS COORDS FOR RITTER: gps-new-entity-place="latitude: 43.084933; longitude: -77.673909" -->
+        <a-entity
+            id="everything-container"
+            rotation="0 90 0"
+            position="0 -50 -250">
+            <a-entity
+                id="bookshelf-container-1">
                 <a-entity
                     gltf-model="bookshelf/scene.gltf"
                     scale="10 10 10"
@@ -93,6 +97,7 @@
                 </a-entity>
             </a-entity>
             <a-entity
+                id="bookshelf-container-2"
                 rotation="0 180 0">
                 <a-entity
                     gltf-model="bookshelf/scene.gltf"
@@ -113,16 +118,19 @@
                     animation="property: position; from: -40 0 -90; to: 40 0 -90; dur: 5000; easing: linear; loop: true; easing: easeInOutCirc; dir: alternate">
                 </a-entity>
             </a-entity>
-        </a-entity>
 
-        <!-- <a-entity>
             <a-entity
-                gltf-model="basic-book/scene.gltf"
-                scale="10 10 10"
-                position="-40 0 -90"
-                animation="property: position; from: -40 0 -90; to: 40 0 -90; dur: 5000; easing: linear; loop: true; easing: easeInOutCirc; dir: alternate">
+                id="books-container"
+                animation="property: rotation; to: 0 360 0; loop: true; dur: 10000; easing: linear">
+                <a-entity
+                    gltf-model="flower-book/scene.gltf"
+                    scale="1 1 1"
+                    rotation="90 0 0"
+                    position="0 1 -40"
+                    animation="property: rotation; to: 90 360 0; loop: true; dur: 2000; easing: linear">
+                </a-entity>
             </a-entity>
-        </a-entity> -->
+        </a-entity>
         
     </a-scene>
 </body>
@@ -137,25 +145,26 @@
 
     // const rocket = document.querySelector("a-entity");
 
-    // let scene = document.querySelector("#scene");
+    let booksContainer = document.querySelector("#books-container");
 
-    // for (let i = 0; i < 50; i++) {
-    //     let whichBook = Math.random() < 0.5 ? "basic-book" : "flower-book";
-    //     console.log(whichBook);
-    //     let newSceneHTML = `
-    //         <a-entity
-    //             gltf-model="${whichBook}/scene.gltf"
-    //             gps-new-entity-place="latitude: 43.082249; longitude: -77.675824"
-    //             scale="10 10 10"
-    //             animation="property: position; from: 0 0 0; to: 0 0 0; dur: 1000; loop: true"
-    //             position="0 ${i} 0"
-    //             clicker
-    //             mover
-    //         ></a-entity>
-    //         `;
+    for (let i = 0; i < 40; i++) {
+        let whichBook = Math.random() < 0.5 ? "basic-book" : "flower-book";
 
-    //     scene.innerHTML += newSceneHTML
-    // };
+        let coordX = Math.random() < 0.5 ? Math.round(Math.random() * 100/i) : Math.round(Math.random() * -100/i);
+        let coordZ = Math.random() < 0.5 ? Math.round(Math.random() * 100/i) : Math.round(Math.random() * -100/i);
+
+        let booksContainerHTML = `
+            <a-entity
+                gltf-model="${whichBook}/scene.gltf"
+                scale="1 1 1"
+                rotation="90 0 0"
+                position="${coordX} ${3 * i} ${coordZ}"
+                animation="property: rotation; to: 90 360 0; loop: true; dur: ${2000 + Math.round(Math.random() * 2000)}; easing: linear">
+            </a-entity>
+            `;
+
+            booksContainer.innerHTML += booksContainerHTML
+    };
 
     
 
