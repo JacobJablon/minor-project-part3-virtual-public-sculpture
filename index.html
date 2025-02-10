@@ -5,50 +5,75 @@
     <!-- A-Frame -->
     <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
     <!-- Geolocation features -->
-    <script type='text/javascript' src='https://raw.githack.com/AR-js-org/AR.js/3.4.5/three.js/build/ar-threex-location-only.js'></script>
+    <script type='text/javascript'
+        src='https://raw.githack.com/AR-js-org/AR.js/3.4.5/three.js/build/ar-threex-location-only.js'></script>
     <!-- we use three.js to handle raycasting -->
     <script src="https://raw.githack.com/AR-js-org/AR.js/master/three.js/build/ar-threex.js"></script>
     <!-- AR.js A-Frame components -->
     <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
-    <script>
-        // AFRAME.registerComponent('clicker', {
-        //     init: function () {
-        //         this.el.addEventListener('click', e => {
-        //             alert('Model clicked!');
-        //         });
-        //     }
-        // });
-
-        // const rocket = document.querySelector("a-entity");
-        let rotationAngle = 0;
-        const radius = 100;
-        AFRAME.registerComponent('mover', {
-            tick: function () {
-                rotationAngle += 0.05;
-                const x = radius * Math.cos(rotationAngle);
-                const z = radius * Math.sin(rotationAngle);
-
-                document.querySelector("a-entity").setAttribute('position', `${x} 0 ${z}`);
-            }
-        });
-
-
-    </script>
+    
     <title>Simple AR Scene</title>
 </head>
 
 <body style="margin: 0; overflow: hidden;">
-    <a-scene embedded arjs vr-mode-ui="enabled: false" raycaster cursor="rayOrigin: mouse" renderer="antialias: true; alpha: true">
+    <a-scene embedded arjs vr-mode-ui="enabled: false" raycaster cursor="rayOrigin: mouse" renderer="antialias: true; alpha: true" id="scene">
         <a-camera gps-new-camera='gpsMinDistance: 5'></a-camera>
         <a-entity
-        gltf-model="bookshelf/scene.gltf"
-        gps-new-entity-place="latitude: 43.082249; longitude: -77.675824"
-        scale="10 10 10"
-        animation="property: position; from: 0 0 0; to: 0 0 0; dur: 1000; loop: true"
-        clicker
-        mover
-        ></a-entity>
+            gltf-model="bookshelf/scene.gltf"
+            gps-new-entity-place="latitude: 43.082249; longitude: -77.675824"
+            scale="10 10 10"
+            animation="property: position; from: 0 0 0; to: 0 0 0; dur: 1000; loop: true"
+            clicker
+            mover>
+        </a-entity>
     </a-scene>
 </body>
+<script>
+    // AFRAME.registerComponent('clicker', {
+    //     init: function () {
+    //         this.el.addEventListener('click', e => {
+    //             alert('Model clicked!');
+    //         });
+    //     }
+    // });
+
+    // const rocket = document.querySelector("a-entity");
+
+    let scene = document.querySelector("#scene");
+
+    for (let i = 0; i < 50; i++) {
+        let whichBook = Math.random() < 0.5 ? "basic-book" : "flower-book";
+        console.log(whichBook);
+        let newSceneHTML = `
+            <a-entity
+                gltf-model="${whichBook}/scene.gltf"
+                gps-new-entity-place="latitude: 43.082249; longitude: -77.675824"
+                scale="10 10 10"
+                animation="property: position; from: 0 0 0; to: 0 0 0; dur: 1000; loop: true"
+                position="0 ${i} 0"
+                clicker
+                mover
+            ></a-entity>
+            `;
+
+        scene.innerHTML += newSceneHTML
+    };
+
+    
+
+    let rotationAngle = 0;
+    const radius = 100;
+    AFRAME.registerComponent('mover', {
+        tick: function () {
+            rotationAngle += 0.05;
+            const x = radius * Math.cos(rotationAngle);
+            const z = radius * Math.sin(rotationAngle);
+
+            document.querySelector("a-entity").setAttribute('position', `${x} 0 ${z}`);
+        }
+    });
+
+
+</script>
 
 </html>
