@@ -21,16 +21,18 @@
 
         // const rocket = document.querySelector("a-entity");
         let rotationAngle = 0;
-        const radius = 2;
+        const radius = 100;
         AFRAME.registerComponent('mover', {
             tick: function () {
                 rotationAngle += 0.05;
                 const x = radius * Math.cos(rotationAngle);
-                const y = radius * Math.sin(rotationAngle);
+                const z = radius * Math.sin(rotationAngle);
 
-                document.querySelector("a-entity").setAttribute('position', `${x} ${y} 0`);
+                document.querySelector("a-entity").setAttribute('position', `${x} 0 ${z}`);
             }
         });
+
+
     </script>
     <title>Simple AR Scene</title>
 </head>

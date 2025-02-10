@@ -1,0 +1,8 @@
+Model Information:
+* title:	Book
+* source:	https://sketchfab.com/3d-models/book-566a0b216b5649a58ce5524d44743a03
+* author:	Avraren (https://sketchfab.com/A_vraren)
+
+Model License:
+* license type:	SKETCHFAB Standard (https://sketchfab.com/licenses)
+* requirements:	Under basic restrictions, use worldwide, on all types of media, commercially or not, and in all types of derivative works
