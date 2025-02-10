@@ -18,14 +18,112 @@
 <body style="margin: 0; overflow: hidden;">
     <a-scene embedded arjs vr-mode-ui="enabled: false" raycaster cursor="rayOrigin: mouse" renderer="antialias: true; alpha: true" id="scene">
         <a-camera gps-new-camera='gpsMinDistance: 5'></a-camera>
-        <a-entity
+        <!-- <a-entity
             gltf-model="bookshelf/scene.gltf"
             gps-new-entity-place="latitude: 43.082249; longitude: -77.675824"
             scale="10 10 10"
-            animation="property: position; from: 0 0 0; to: 0 0 0; dur: 1000; loop: true"
+            
+            rotation="0 0 0" animation="property: rotation; to: 0 360 0; loop: true; dur: 10000"
             clicker
             mover>
+        </a-entity> -->
+        
+        <!-- <a-entity
+            id="green"
+            gps-new-entity-place="latitude: 43.079743; longitude: -77.678794"
+            rotation="0 0 0"
+            animation="property: rotation; to: 0 360 0; loop: true; dur: 4000">
+            <a-box
+                position="0 0 -5"
+                color="mediumseagreen">
+            </a-box>
         </a-entity>
+        <a-entity
+            id="blue"
+            gps-new-entity-place="latitude: 43.079743; longitude: -77.678794">
+            <a-box 
+                position="0 0 0"
+                color="#4CC3D9"
+                rotation="0 45 0"
+                animation="property: rotation; to: 0 360 0; loop: true; dur: 5000">
+            </a-box>
+        </a-entity>
+        <a-entity
+            id="pink"
+            gps-new-entity-place="latitude: 43.079743; longitude: -77.678794"
+            rotation="0 0 0" animation="property: rotation; to: 0 360 0; loop: true; dur: 4000">
+            <a-box
+                position="0 0 -3"
+                color="#AA22AA"
+                rotation="0 45 0"
+                animation="property: rotation; to: 0 360 0; loop: true; dur: 5000">
+            </a-box>
+        </a-entity>
+        <a-entity
+            id="red"
+            gps-new-entity-place="latitude: 43.079743; longitude: -77.678794">
+            <a-box
+                position="-2 2 -5"
+                color="tomato"
+                animation="property: position; from: -2 2 -5; to: 2 2 -5; dur: 2000; easing: linear; loop: true; easing: easeInOutCirc; dir: alternate">
+            </a-box>
+        </a-entity> -->
+
+
+
+        <a-entity gps-new-entity-place="latitude: 43.079743; longitude: -77.678794">
+            <a-entity>
+                <a-entity
+                    gltf-model="bookshelf/scene.gltf"
+                    scale="10 10 10"
+                    position="-40 0 -30"
+                    animation="property: position; from: -40 0 -30; to: 40 0 -30; dur: 5000; easing: linear; loop: true; easing: easeInOutCirc; dir: alternate">
+                </a-entity>
+                <a-entity
+                    gltf-model="bookshelf/scene.gltf"
+                    scale="10 10 10"
+                    position="-40 0 -60"
+                    animation="property: position; to: -40 0 -60; from: 40 0 -60; dur: 5000; easing: linear; loop: true; easing: easeInOutCirc; dir: alternate">
+                </a-entity>
+                <a-entity
+                    gltf-model="bookshelf/scene.gltf"
+                    scale="10 10 10"
+                    position="-40 0 -90"
+                    animation="property: position; from: -40 0 -90; to: 40 0 -90; dur: 5000; easing: linear; loop: true; easing: easeInOutCirc; dir: alternate">
+                </a-entity>
+            </a-entity>
+            <a-entity
+                rotation="0 180 0">
+                <a-entity
+                    gltf-model="bookshelf/scene.gltf"
+                    scale="10 10 10"
+                    position="-40 0 -30"
+                    animation="property: position; from: -40 0 -30; to: 40 0 -30; dur: 5000; easing: linear; loop: true; easing: easeInOutCirc; dir: alternate">
+                </a-entity>
+                <a-entity
+                    gltf-model="bookshelf/scene.gltf"
+                    scale="10 10 10"
+                    position="-40 0 -60"
+                    animation="property: position; to: -40 0 -60; from: 40 0 -60; dur: 5000; easing: linear; loop: true; easing: easeInOutCirc; dir: alternate">
+                </a-entity>
+                <a-entity
+                    gltf-model="bookshelf/scene.gltf"
+                    scale="10 10 10"
+                    position="-40 0 -90"
+                    animation="property: position; from: -40 0 -90; to: 40 0 -90; dur: 5000; easing: linear; loop: true; easing: easeInOutCirc; dir: alternate">
+                </a-entity>
+            </a-entity>
+        </a-entity>
+
+        <!-- <a-entity>
+            <a-entity
+                gltf-model="basic-book/scene.gltf"
+                scale="10 10 10"
+                position="-40 0 -90"
+                animation="property: position; from: -40 0 -90; to: 40 0 -90; dur: 5000; easing: linear; loop: true; easing: easeInOutCirc; dir: alternate">
+            </a-entity>
+        </a-entity> -->
+        
     </a-scene>
 </body>
 <script>
@@ -39,39 +137,39 @@
 
     // const rocket = document.querySelector("a-entity");
 
-    let scene = document.querySelector("#scene");
+    // let scene = document.querySelector("#scene");
 
-    for (let i = 0; i < 50; i++) {
-        let whichBook = Math.random() < 0.5 ? "basic-book" : "flower-book";
-        console.log(whichBook);
-        let newSceneHTML = `
-            <a-entity
-                gltf-model="${whichBook}/scene.gltf"
-                gps-new-entity-place="latitude: 43.082249; longitude: -77.675824"
-                scale="10 10 10"
-                animation="property: position; from: 0 0 0; to: 0 0 0; dur: 1000; loop: true"
-                position="0 ${i} 0"
-                clicker
-                mover
-            ></a-entity>
-            `;
+    // for (let i = 0; i < 50; i++) {
+    //     let whichBook = Math.random() < 0.5 ? "basic-book" : "flower-book";
+    //     console.log(whichBook);
+    //     let newSceneHTML = `
+    //         <a-entity
+    //             gltf-model="${whichBook}/scene.gltf"
+    //             gps-new-entity-place="latitude: 43.082249; longitude: -77.675824"
+    //             scale="10 10 10"
+    //             animation="property: position; from: 0 0 0; to: 0 0 0; dur: 1000; loop: true"
+    //             position="0 ${i} 0"
+    //             clicker
+    //             mover
+    //         ></a-entity>
+    //         `;
 
-        scene.innerHTML += newSceneHTML
-    };
+    //     scene.innerHTML += newSceneHTML
+    // };
 
     
 
-    let rotationAngle = 0;
-    const radius = 100;
-    AFRAME.registerComponent('mover', {
-        tick: function () {
-            rotationAngle += 0.05;
-            const x = radius * Math.cos(rotationAngle);
-            const z = radius * Math.sin(rotationAngle);
+    // let rotationAngle = 0;
+    // const radius = 100;
+    // AFRAME.registerComponent('mover', {
+    //     tick: function () {
+    //         rotationAngle += 0.05;
+    //         const x = radius * Math.cos(rotationAngle);
+    //         const z = radius * Math.sin(rotationAngle);
 
-            document.querySelector("a-entity").setAttribute('position', `${x} 0 ${z}`);
-        }
-    });
+    //         document.querySelectorAll("a-entity").setAttribute('position', `${x} 0 ${z}`);
+    //     }
+    // });
 
 
 </script>
