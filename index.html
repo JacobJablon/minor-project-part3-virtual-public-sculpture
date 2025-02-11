@@ -18,63 +18,12 @@
 <body style="margin: 0; overflow: hidden;">
     <a-scene embedded arjs vr-mode-ui="enabled: false" raycaster cursor="rayOrigin: mouse" renderer="antialias: true; alpha: true" id="scene">
         <a-camera gps-new-camera='gpsMinDistance: 5'></a-camera>
-        <!-- <a-entity
-            gltf-model="bookshelf/scene.gltf"
-            gps-new-entity-place="latitude: 43.082249; longitude: -77.675824"
-            scale="10 10 10"
-            
-            rotation="0 0 0" animation="property: rotation; to: 0 360 0; loop: true; dur: 10000"
-            clicker
-            mover>
-        </a-entity> -->
-        
-        <!-- <a-entity
-            id="green"
-            gps-new-entity-place="latitude: 43.079743; longitude: -77.678794"
-            rotation="0 0 0"
-            animation="property: rotation; to: 0 360 0; loop: true; dur: 4000">
-            <a-box
-                position="0 0 -5"
-                color="mediumseagreen">
-            </a-box>
-        </a-entity>
-        <a-entity
-            id="blue"
-            gps-new-entity-place="latitude: 43.079743; longitude: -77.678794">
-            <a-box 
-                position="0 0 0"
-                color="#4CC3D9"
-                rotation="0 45 0"
-                animation="property: rotation; to: 0 360 0; loop: true; dur: 5000">
-            </a-box>
-        </a-entity>
-        <a-entity
-            id="pink"
-            gps-new-entity-place="latitude: 43.079743; longitude: -77.678794"
-            rotation="0 0 0" animation="property: rotation; to: 0 360 0; loop: true; dur: 4000">
-            <a-box
-                position="0 0 -3"
-                color="#AA22AA"
-                rotation="0 45 0"
-                animation="property: rotation; to: 0 360 0; loop: true; dur: 5000">
-            </a-box>
-        </a-entity>
-        <a-entity
-            id="red"
-            gps-new-entity-place="latitude: 43.079743; longitude: -77.678794">
-            <a-box
-                position="-2 2 -5"
-                color="tomato"
-                animation="property: position; from: -2 2 -5; to: 2 2 -5; dur: 2000; easing: linear; loop: true; easing: easeInOutCirc; dir: alternate">
-            </a-box>
-        </a-entity> -->
 
 
 <!-- GPS COORDS FOR RITTER: gps-new-entity-place="latitude: 43.084933; longitude: -77.673909" -->
+<!-- NO LOCATION BASED AR: id="everything-container" rotation="0 90 0" position="0 -50 -250" -->
         <a-entity
-            id="everything-container"
-            rotation="0 90 0"
-            position="0 -50 -250">
+            gps-new-entity-place="latitude: 43.084933; longitude: -77.673909">
             <a-entity
                 id="bookshelf-container-1">
                 <a-entity
