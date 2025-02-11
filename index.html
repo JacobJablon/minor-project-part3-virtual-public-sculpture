@@ -23,64 +23,62 @@
 <!-- GPS COORDS FOR RITTER: gps-new-entity-place="latitude: 43.084933; longitude: -77.673909" -->
 <!-- NO LOCATION BASED AR: id="everything-container" rotation="0 90 0" position="0 -50 -250" -->
         <a-entity
-            gps-new-entity-place="latitude: 43.08530815078381; longitude: -77.67391578912081">
-            <a-entity
+            gps-new-entity-place="latitude: 43.08530815078381; longitude: -77.67391578912081"
             position="0 -40 -220">
+            <a-entity
+                id="bookshelf-container-1">
                 <a-entity
-                    id="bookshelf-container-1">
-                    <a-entity
-                        gltf-model="bookshelf/scene.gltf"
-                        scale="10 10 10"
-                        position="-40 0 -30"
-                        animation="property: position; from: -40 0 -30; to: 40 0 -30; dur: 5000; easing: linear; loop: true; easing: easeInOutCirc; dir: alternate">
-                    </a-entity>
-                    <a-entity
-                        gltf-model="bookshelf/scene.gltf"
-                        scale="10 10 10"
-                        position="-40 0 -60"
-                        animation="property: position; to: -40 0 -60; from: 40 0 -60; dur: 5000; easing: linear; loop: true; easing: easeInOutCirc; dir: alternate">
-                    </a-entity>
-                    <a-entity
-                        gltf-model="bookshelf/scene.gltf"
-                        scale="10 10 10"
-                        position="-40 0 -90"
-                        animation="property: position; from: -40 0 -90; to: 40 0 -90; dur: 5000; easing: linear; loop: true; easing: easeInOutCirc; dir: alternate">
-                    </a-entity>
+                    gltf-model="bookshelf/scene.gltf"
+                    scale="10 10 10"
+                    position="-40 0 -30"
+                    animation="property: position; from: -40 0 -30; to: 40 0 -30; dur: 5000; easing: linear; loop: true; easing: easeInOutCirc; dir: alternate">
                 </a-entity>
                 <a-entity
-                    id="bookshelf-container-2"
-                    rotation="0 180 0">
-                    <a-entity
-                        gltf-model="bookshelf/scene.gltf"
-                        scale="10 10 10"
-                        position="-40 0 -30"
-                        animation="property: position; from: -40 0 -30; to: 40 0 -30; dur: 5000; easing: linear; loop: true; easing: easeInOutCirc; dir: alternate">
-                    </a-entity>
-                    <a-entity
-                        gltf-model="bookshelf/scene.gltf"
-                        scale="10 10 10"
-                        position="-40 0 -60"
-                        animation="property: position; to: -40 0 -60; from: 40 0 -60; dur: 5000; easing: linear; loop: true; easing: easeInOutCirc; dir: alternate">
-                    </a-entity>
-                    <a-entity
-                        gltf-model="bookshelf/scene.gltf"
-                        scale="10 10 10"
-                        position="-40 0 -90"
-                        animation="property: position; from: -40 0 -90; to: 40 0 -90; dur: 5000; easing: linear; loop: true; easing: easeInOutCirc; dir: alternate">
-                    </a-entity>
+                    gltf-model="bookshelf/scene.gltf"
+                    scale="10 10 10"
+                    position="-40 0 -60"
+                    animation="property: position; to: -40 0 -60; from: 40 0 -60; dur: 5000; easing: linear; loop: true; easing: easeInOutCirc; dir: alternate">
                 </a-entity>
+                <a-entity
+                    gltf-model="bookshelf/scene.gltf"
+                    scale="10 10 10"
+                    position="-40 0 -90"
+                    animation="property: position; from: -40 0 -90; to: 40 0 -90; dur: 5000; easing: linear; loop: true; easing: easeInOutCirc; dir: alternate">
+                </a-entity>
+            </a-entity>
+            <a-entity
+                id="bookshelf-container-2"
+                rotation="0 180 0">
+                <a-entity
+                    gltf-model="bookshelf/scene.gltf"
+                    scale="10 10 10"
+                    position="-40 0 -30"
+                    animation="property: position; from: -40 0 -30; to: 40 0 -30; dur: 5000; easing: linear; loop: true; easing: easeInOutCirc; dir: alternate">
+                </a-entity>
+                <a-entity
+                    gltf-model="bookshelf/scene.gltf"
+                    scale="10 10 10"
+                    position="-40 0 -60"
+                    animation="property: position; to: -40 0 -60; from: 40 0 -60; dur: 5000; easing: linear; loop: true; easing: easeInOutCirc; dir: alternate">
+                </a-entity>
+                <a-entity
+                    gltf-model="bookshelf/scene.gltf"
+                    scale="10 10 10"
+                    position="-40 0 -90"
+                    animation="property: position; from: -40 0 -90; to: 40 0 -90; dur: 5000; easing: linear; loop: true; easing: easeInOutCirc; dir: alternate">
+                </a-entity>
+            </a-entity>
 
-                <a-entity
-                    id="books-container"
-                    animation="property: rotation; to: 0 360 0; loop: true; dur: 10000; easing: linear">
-                    <!-- <a-entity
-                        gltf-model="flower-book/scene.gltf"
-                        scale="1 1 1"
-                        rotation="90 0 0"
-                        position="0 1 -40"
-                        animation="property: rotation; to: 90 360 0; loop: true; dur: 2000; easing: linear">
-                    </a-entity> -->
-                </a-entity>
+            <a-entity
+                id="books-container"
+                animation="property: rotation; to: 0 360 0; loop: true; dur: 10000; easing: linear">
+                <!-- <a-entity
+                    gltf-model="flower-book/scene.gltf"
+                    scale="1 1 1"
+                    rotation="90 0 0"
+                    position="0 1 -40"
+                    animation="property: rotation; to: 90 360 0; loop: true; dur: 2000; easing: linear">
+                </a-entity> -->
             </a-entity>
         </a-entity>
         
