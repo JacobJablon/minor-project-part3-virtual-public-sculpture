@@ -72,7 +72,9 @@
 
 <!-- GPS COORDS FOR RITTER: gps-new-entity-place="latitude: 43.084933; longitude: -77.673909" -->
         <a-entity
-        gps-new-entity-place="latitude: 43.084933; longitude: -77.673909">
+            id="everything-container"
+            rotation="0 90 0"
+            position="0 -50 -250">
             <a-entity
                 id="bookshelf-container-1">
                 <a-entity
@@ -120,27 +122,27 @@
             <a-entity
                 id="books-container"
                 animation="property: rotation; to: 0 360 0; loop: true; dur: 10000; easing: linear">
-                <a-entity
+                <!-- <a-entity
                     gltf-model="flower-book/scene.gltf"
                     scale="1 1 1"
                     rotation="90 0 0"
                     position="0 1 -40"
                     animation="property: rotation; to: 90 360 0; loop: true; dur: 2000; easing: linear">
-                </a-entity>
+                </a-entity> -->
             </a-entity>
         </a-entity>
         
     </a-scene>
 </body>
 <script>
-    AFRAME.registerComponent('clicker', {
-        init: function () {
-            this.el.addEventListener('click', e => {
-                let book = querySelectorAll("#book");
-                book.setAttribute("animation", {"dur": "1000"});
-            });
-        }
-    });
+    // AFRAME.registerComponent('clicker', {
+    //     init: function () {
+    //         this.el.addEventListener('click', e => {
+    //             let book = querySelectorAll("#book");
+    //             book.setAttribute("animation.dur", {"dur": "1000"});
+    //         });
+    //     }
+    // });
 
 
     let booksContainer = document.querySelector("#books-container");
@@ -148,8 +150,9 @@
     for (let i = 0; i < 40; i++) {
         let whichBook = Math.random() < 0.5 ? "basic-book" : "flower-book";
 
-        let coordX = Math.random() < 0.5 ? Math.round(Math.random() * 100/i) : Math.round(Math.random() * -100/i);
-        let coordZ = Math.random() < 0.5 ? Math.round(Math.random() * 100/i) : Math.round(Math.random() * -100/i);
+        let coordX = Math.random() < 0.5 ? Math.round(Math.random() * 20) : Math.round(Math.random() * -20);
+        let coordZ = Math.random() < 0.5 ? Math.round(Math.random() * 20) : Math.round(Math.random() * -20);
+        let duration = 2000 + Math.round(Math.random() * 2000);
 
         let booksContainerHTML = `
             <a-entity
@@ -158,26 +161,13 @@
                 scale="1 1 1"
                 rotation="90 0 0"
                 position="${coordX} ${3 * i} ${coordZ}"
-                animation="property: rotation; to: 90 360 0; loop: true; dur: ${2000 + Math.round(Math.random() * 2000)}; easing: linear">
+                animation="property: rotation; to: 90 360 0; loop: true; dur: ${duration}; easing: linear">
             </a-entity>
             `;
 
             booksContainer.innerHTML += booksContainerHTML
     };
 
-    
-
-    // let rotationAngle = 0;
-    // const radius = 100;
-    // AFRAME.registerComponent('mover', {
-    //     tick: function () {
-    //         rotationAngle += 0.05;
-    //         const x = radius * Math.cos(rotationAngle);
-    //         const z = radius * Math.sin(rotationAngle);
-
-    //         document.querySelectorAll("a-entity").setAttribute('position', `${x} 0 ${z}`);
-    //     }
-    // });
 
 
 </script>
