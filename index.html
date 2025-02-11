@@ -12,19 +12,19 @@
     <!-- AR.js A-Frame components -->
     <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
     
-    <title>Simple AR Scene</title>
+    <title>Minor Project (Part III) - Virtual Public Sculpture</title>
 </head>
 
 <body style="margin: 0; overflow: hidden;">
     <a-scene embedded arjs vr-mode-ui="enabled: false" raycaster cursor="rayOrigin: mouse" renderer="antialias: true; alpha: true" id="scene">
         <a-camera gps-new-camera='gpsMinDistance: 5'></a-camera>
 
-
-<!-- GPS COORDS FOR RITTER: gps-new-entity-place="latitude: 43.084933; longitude: -77.673909" -->
-<!-- NO LOCATION BASED AR: id="everything-container" rotation="0 90 0" position="0 -50 -250" -->
+        <!-- Overall container entity that holds every other entity -->
         <a-entity
             gps-new-entity-place="latitude: 43.08660815078381; longitude: -77.67391578912081"
             position="0 -20 0">
+
+            <!-- Container entity that holds three bookshelves -->
             <a-entity
                 id="bookshelf-container-1">
                 <a-entity
@@ -46,6 +46,9 @@
                     animation="property: position; from: -40 0 -90; to: 40 0 -90; dur: 5000; easing: linear; loop: true; easing: easeInOutCirc; dir: alternate">
                 </a-entity>
             </a-entity>
+
+            <!-- Container entity that holds the other three bookshelves -->
+            <!-- This entity is the same as the one before except it is rotated around the center of the scene -->
             <a-entity
                 id="bookshelf-container-2"
                 rotation="0 180 0">
@@ -69,32 +72,17 @@
                 </a-entity>
             </a-entity>
 
+            <!-- Container entity that holds the books -->
             <a-entity
                 id="books-container"
                 animation="property: rotation; to: 0 360 0; loop: true; dur: 10000; easing: linear">
-                <!-- <a-entity
-                    gltf-model="flower-book/scene.gltf"
-                    scale="1 1 1"
-                    rotation="90 0 0"
-                    position="0 1 -40"
-                    animation="property: rotation; to: 90 360 0; loop: true; dur: 2000; easing: linear">
-                </a-entity> -->
+                <!-- A for loop is used to add 40 3D model books to this entity right here -->
             </a-entity>
         </a-entity>
         
     </a-scene>
 </body>
 <script>
-    // AFRAME.registerComponent('clicker', {
-    //     init: function () {
-    //         this.el.addEventListener('click', e => {
-    //             let book = querySelectorAll("#book");
-    //             book.setAttribute("animation.dur", {"dur": "1000"});
-    //         });
-    //     }
-    // });
-
-
     let booksContainer = document.querySelector("#books-container");
 
     for (let i = 0; i < 40; i++) {
@@ -117,9 +105,5 @@
 
             booksContainer.innerHTML += booksContainerHTML
     };
-
-
-
 </script>
-
 </html>
