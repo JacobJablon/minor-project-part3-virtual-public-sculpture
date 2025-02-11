@@ -17,15 +17,16 @@
 
 <body style="margin: 0; overflow: hidden;">
     <a-scene embedded arjs vr-mode-ui="enabled: false" raycaster cursor="rayOrigin: mouse" renderer="antialias: true; alpha: true" id="scene">
-        <a-camera gps-new-camera='gpsMinDistance: 5'></a-camera>
+        <a-camera
+            gps-new-camera='gpsMinDistance: 5; simulateLatitude: 43.08531488893001; simulateLongitude: -77.67369282569453'>
+        </a-camera>
 
 
 <!-- GPS COORDS FOR RITTER: gps-new-entity-place="latitude: 43.084933; longitude: -77.673909" -->
 <!-- NO LOCATION BASED AR: id="everything-container" rotation="0 90 0" position="0 -50 -250" -->
         <a-entity
             gps-new-entity-place="latitude: 43.08530815078381; longitude: -77.67391578912081"
-            position="-3000 -75 -500"
-            rotation="0 0 0">
+            >
             <a-entity
                 id="bookshelf-container-1">
                 <a-entity
